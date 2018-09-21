@@ -8,7 +8,8 @@ SNAPSHOT_REPO_1=$3
 echo "Query snapshot repository..."
 echo "Result: $SNAPSHOT_REPO_1"
 SNAPSHOT_URL=$SNAPSHOT_REPO_1
-content=$(wget $SNAPSHOT_URL -q -O -)
+content=$(curl -L $SNAPSHOT_URL)
+echo "Should fetched snapshot."
 echo $content
 
 echo -e "[Webhook]: Sending webhook to Discord...\\n";

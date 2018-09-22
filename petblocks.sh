@@ -77,20 +77,17 @@ WEBHOOK_DATA='{
           "name": "Download Latest Snapshot",
           "value": "'"[\`Direct Download\`]($SNAPSHOT_DOWNLOAD_URL)"'",
           "inline": true
-      },
-      {
-          "name": "Cat",
-          "value": "Hi! :wave:",
-          "inline": true
       }
     ],
     "timestamp": "'"$TIMESTAMP"'"
   },
   {
+     "title": "Blue Snapshot Pet",
+     "description": "Author Shynixn published a new snapshot build",
      "fields": [
            {
              "name": "Cat",
-             "value": "Hi! :wave:",
+             "value": "Hi! :brownpetsheep: ",
              "inline": true
            },
            {
@@ -99,12 +96,9 @@ WEBHOOK_DATA='{
              "inline": true
            },
            {
-             "name": "Cat",
-             "value": "wanna play? join to voice channel!"
-           },
-           {
-             "name": "Dog",
-             "value": "yay"
+               "name": "Download Latest Snapshot",
+               "value": "'"[\`Direct Download\`]($SNAPSHOT_DOWNLOAD_URL)"'",
+               "inline": true
            }
      ]
   }]

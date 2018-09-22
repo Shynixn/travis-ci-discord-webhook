@@ -4,14 +4,6 @@ if [ -z "$2" ]; then
   echo -e "WARNING!!\nYou need to pass the WEBHOOK_URL environment variable as the second argument to this script.\nFor details & guide, visit: https://github.com/k3rn31p4nic/travis-ci-discord-webhook" && exit
 fi
 
-SNAPSHOT_REPO_1=$3
-echo "Query snapshot repository..."
-echo "Result: $SNAPSHOT_REPO_1"
-SNAPSHOT_URL=$SNAPSHOT_REPO_1
-content=$(curl -L $SNAPSHOT_URL)
-echo "Should fetched snapshot."
-echo $content
-
 echo -e "[Webhook]: Sending webhook to Discord...\\n";
 
 case $1 in
@@ -81,5 +73,5 @@ WEBHOOK_DATA='{
   } ]
 }'
 
-(curl --fail --progress-bar -A "TravisCI-Webhook" -H Content-Type:application/json -H X-Author:k3rn31p4nic#8383 -d "$WEBHOOK_DATA" "$test2" \
+(curl --fail --progress-bar -A "TravisCI-Webhook" -H Content-Type:application/json -H X-Author:k3rn31p4nic#8383 -d "$WEBHOOK_DATA" "$2" \
   && echo -e "\\n[Webhook]: Successfully sent the webhook.") || echo -e "\\n[Webhook]: Unable to send webhook."

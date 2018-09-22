@@ -93,7 +93,7 @@ WEBHOOK_DATA='{
            },
            {
              "name": "Sponge",
-             "value": "<:sponge:493025240427790346> '"[\`Direct Download\`]($SNAPSHOT_SPONGE_DOWNLOAD_URL)"'",
+             "value": "<:sponge:493038148629168138> '"[\`Direct Download\`]($SNAPSHOT_SPONGE_DOWNLOAD_URL)"'",
              "inline": true
            }
      ],
@@ -119,7 +119,7 @@ SNAPSHOT_WEBHOOK_DATA='{
           },
           {
             "name": "Sponge",
-            "value": "<:sponge:493025240427790346> '"[\`Direct Download\`]($SNAPSHOT_SPONGE_DOWNLOAD_URL)"'",
+            "value": "<:sponge:493038148629168138> '"[\`Direct Download\`]($SNAPSHOT_SPONGE_DOWNLOAD_URL)"'",
             "inline": true
           }
     ],

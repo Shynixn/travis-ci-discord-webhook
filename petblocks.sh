@@ -105,7 +105,7 @@ SNAPSHOT_WEBHOOK_DATA='{
    "embeds": [ {
     "color": '$EMBED_COLOR',
     "author": {
-      "name": "PetBlocks Snapshot - Shynixn/PetBlocks - $SNAPSHOT_GENERAL_ID",
+      "name": "PetBlocks Snapshot - Shynixn/PetBlocks - '"$SNAPSHOT_GENERAL_ID"'",
       "url": "https://travis-ci.org/'"$TRAVIS_REPO_SLUG"'/builds/'"$TRAVIS_BUILD_ID"'",
       "icon_url": "https://raw.githubusercontent.com/Shynixn/travis-ci-discord-webhook/master/bluepetsheep.png"
     },

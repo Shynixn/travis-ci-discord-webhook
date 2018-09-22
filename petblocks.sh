@@ -4,6 +4,11 @@ if [ -z "$2" ]; then
   echo -e "WARNING!!\nYou need to pass the WEBHOOK_URL environment variable as the second argument to this script.\nFor details & guide, visit: https://github.com/k3rn31p4nic/travis-ci-discord-webhook" && exit
 fi
 
+echo "[SnapshotUrlLocator]: Querying snapshot..."
+SNAPSHOT_DOWNLOAD_URL=java -jar nexus-query-snapshot.jar $3
+
+echo "Download URL: $SNAPSHOT_DOWNLOAD_URL"
+
 echo -e "[Webhook]: Sending webhook to Discord...\\n";
 
 case $1 in

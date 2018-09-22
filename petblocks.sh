@@ -84,10 +84,15 @@ WEBHOOK_DATA='{
   {
      "title": "Blue Snapshot Pet",
      "description": "Author Shynixn published a new snapshot build",
+     "author": {
+           "name": "Sample",
+           "url": "https://travis-ci.org/'"$TRAVIS_REPO_SLUG"'/builds/'"$TRAVIS_BUILD_ID"'",
+           "icon_url": "'$AVATAR'"
+     },
      "fields": [
            {
              "name": "Cat",
-             "value": "Hi! :brownpetsheep: ",
+             "value": "Hi! <:brownpetsheep:470653431179116554> ",
              "inline": true
            },
            {
@@ -100,7 +105,8 @@ WEBHOOK_DATA='{
                "value": "'"[\`Direct Download\`]($SNAPSHOT_DOWNLOAD_URL)"'",
                "inline": true
            }
-     ]
+     ],
+      "timestamp": "'"$TIMESTAMP"'"
   }]
 }'
 

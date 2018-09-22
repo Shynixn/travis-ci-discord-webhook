@@ -74,8 +74,8 @@ WEBHOOK_DATA='{
         "inline": true
       },
       {
-          "name": "Download/Snapshot",
-          "value": "'":brownpetsheep: [\`Direct Download\`]($SNAPSHOT_DOWNLOAD_URL)"'",
+          "name": "Download Latest Snapshot",
+          "value": ":brownpetsheep: '"[\`Direct Download\`]($SNAPSHOT_DOWNLOAD_URL)"'",
           "inline": true
       }
     ],

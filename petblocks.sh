@@ -82,28 +82,23 @@ WEBHOOK_DATA='{
     "timestamp": "'"$TIMESTAMP"'"
   },
   {
-     "title": "Blue Snapshot Pet",
+     "title": "Downloads",
      "description": "Author Shynixn published a new snapshot build",
      "author": {
-           "name": "Sample",
-           "url": "https://travis-ci.org/'"$TRAVIS_REPO_SLUG"'/builds/'"$TRAVIS_BUILD_ID"'",
-           "icon_url": "'$AVATAR'"
+           "name": "Snapshot Pet",
+           "url": "https://raw.githubusercontent.com/Shynixn/travis-ci-discord-webhook/master/bluepetsheep.png",
+           "icon_url": "https://raw.githubusercontent.com/Shynixn/travis-ci-discord-webhook/master/bluepetsheep.png"
      },
      "fields": [
            {
-             "name": "Cat",
-             "value": "Hi! <:brownpetsheep:470653431179116554> ",
+             "name": "Spigot/Bukkit",
+             "value": "'"[<:bukkit:493024859555627009> <:spigot:493024286857101313> \`Direct Download\`]($SNAPSHOT_DOWNLOAD_URL)"'",
              "inline": true
            },
            {
-             "name": "Dog",
-             "value": "hello!",
+             "name": "Sponge",
+             "value": "'"[<:sponge:493025240427790346> \`Direct Download\`]($SNAPSHOT_DOWNLOAD_URL)"'",
              "inline": true
-           },
-           {
-               "name": "Download Latest Snapshot",
-               "value": "'"[\`Direct Download\`]($SNAPSHOT_DOWNLOAD_URL)"'",
-               "inline": true
            }
      ],
       "timestamp": "'"$TIMESTAMP"'"

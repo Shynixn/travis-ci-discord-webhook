@@ -73,30 +73,19 @@ WEBHOOK_DATA='{
         "value": "'"[\`$TRAVIS_BRANCH\`](https://github.com/$TRAVIS_REPO_SLUG/tree/$TRAVIS_BRANCH)"'",
         "inline": true
       },
+      {
+          "name": "Download Latest Snapshot",
+          "value": "'"[\`Direct Download\`]($SNAPSHOT_DOWNLOAD_URL)"'",
+          "inline": true
+      },
+      {
+          "name": "Cat",
+          "value": "Hi! :wave:",
+          "inline": true
+      }
     ],
     "timestamp": "'"$TIMESTAMP"'"
-  },
-   {
-       "color": '$EMBED_COLOR',
-       "author": {
-         "name": "Snapshot Pet",
-         "icon_url": "'https://www.spigotmc.org/data/resource_icons/12/12056.jpg?1457281502'"
-       },
-       "title": "New snapshot builds available",
-       "description": "Shynixn published a new snapshot",
-       "fields": [
-          {
-               "name": "Cat",
-               "value": "Hi! :wave:",
-               "inline": true
-             },
-         {
-             "name": "Download Latest Snapshot",
-             "value": "'"[\`Direct Download\`]($SNAPSHOT_DOWNLOAD_URL)"'",
-             "inline": true
-         }
-       ]
-    }]
+  } ]
 }'
 
 (curl --fail --progress-bar -A "TravisCI-Webhook" -H Content-Type:application/json -H X-Author:k3rn31p4nic#8383 -d "$WEBHOOK_DATA" "$2" \

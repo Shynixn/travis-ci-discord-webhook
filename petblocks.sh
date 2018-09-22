@@ -95,7 +95,7 @@ WEBHOOK_DATA='{
              "value": "'"[\`Direct Download\`]($SNAPSHOT_DOWNLOAD_URL)"'",
              "inline": true
          }
-       ],
+       ]
     }]
 }'
 

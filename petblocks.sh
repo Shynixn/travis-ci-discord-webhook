@@ -4,10 +4,10 @@ if [ -z "$2" ]; then
   echo -e "WARNING!!\nYou need to pass the WEBHOOK_URL environment variable as the second argument to this script.\nFor details & guide, visit: https://github.com/k3rn31p4nic/travis-ci-discord-webhook" && exit
 fi
 
-echo "[SnapshotUrlLocator]: Querying snapshot..."
-SNAPSHOT_DOWNLOAD_URL=$(java -jar nexus-query-snapshot.jar $3)
-
-echo "Download URL: $SNAPSHOT_DOWNLOAD_URL"
+echo "[SnapshotUrlLocator]: Querying snapshots..."
+SNAPSHOT_BUKKIT_DOWNLOAD_URL=$(java -jar nexus-query-snapshot.jar $3)
+SNAPSHOT_SPONGE_DOWNLOAD_URL=$(java -jar nexus-query-snapshot.jar $4)
+echo "[SnapshotUrlLocator]: Successfully queried snapshots."
 
 echo -e "[Webhook]: Sending webhook to Discord...\\n";
 
@@ -72,11 +72,6 @@ WEBHOOK_DATA='{
         "name": "Branch/Tag",
         "value": "'"[\`$TRAVIS_BRANCH\`](https://github.com/$TRAVIS_REPO_SLUG/tree/$TRAVIS_BRANCH)"'",
         "inline": true
-      },
-      {
-          "name": "Download Latest Snapshot",
-          "value": "'"[\`Direct Download\`]($SNAPSHOT_DOWNLOAD_URL)"'",
-          "inline": true
       }
     ],
     "timestamp": "'"$TIMESTAMP"'"
@@ -92,12 +87,12 @@ WEBHOOK_DATA='{
      "fields": [
            {
              "name": "Spigot/Bukkit",
-             "value": "'"[<:bukkit:493024859555627009> <:spigot:493024286857101313> \`Direct Download\`]($SNAPSHOT_DOWNLOAD_URL)"'",
+             "value": "<:bukkit:493024859555627009> '"[\`Direct Download\`]($SNAPSHOT_BUKKIT_DOWNLOAD_URL)"'",
              "inline": true
            },
            {
              "name": "Sponge",
-             "value": "'"[<:sponge:493025240427790346> \`Direct Download\`]($SNAPSHOT_DOWNLOAD_URL)"'",
+             "value": "<:sponge:493025240427790346> '"[\`Direct Download\`]($SNAPSHOT_SPONGE_DOWNLOAD_URL)"'",
              "inline": true
            }
      ],

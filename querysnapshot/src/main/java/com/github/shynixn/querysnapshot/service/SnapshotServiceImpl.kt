@@ -35,6 +35,29 @@ import javax.net.ssl.HttpsURLConnection
  */
 class SnapshotServiceImpl : SnapshotService {
     /**
+     * Searches the snapshot repository for the latest snapshot id. Throws
+     * a [IllegalArgumentException] if not found.
+     */
+    override fun findSnapshotId(snapshotRepository: String): String {
+        val content = getSiteContent(snapshotRepository);
+        val data = content.split("SNAPSHOT")
+
+        val lastSnapshotRepositoryPayload = data[data.size - 3];
+        val lastSnapshotRepositoryURL = lastSnapshotRepositoryPayload.substring(lastSnapshotRepositoryPayload.indexOf("https://")) + "SNAPSHOT"
+
+        val repositoryContent = getSiteContent(lastSnapshotRepositoryURL)
+        val snapshotPayload = repositoryContent.split("href=\"")
+        val subSnapshotPayload = snapshotPayload.filter { p -> p.contains(".jar\"") }
+
+        val snapshotDownloadURLPayload = subSnapshotPayload[subSnapshotPayload.size - 1]
+
+        val url = snapshotDownloadURLPayload.substring(0, snapshotDownloadURLPayload.indexOf("\">"))
+        val parts = url.substring(0, url.indexOf(".jar")).split("-")
+
+        return "SNAPSHOT-" + parts[parts.size - 3] + "-" + parts[parts.size - 2] + "-" + parts[parts.size - 1]
+    }
+
+    /**
      * Searches the snapshot repository for the latest download link. Throws
      * a [IllegalArgumentException] if not found.
      */

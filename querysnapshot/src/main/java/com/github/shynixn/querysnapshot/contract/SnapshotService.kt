@@ -34,4 +34,10 @@ interface SnapshotService {
      * a [IllegalArgumentException] if not found.
      */
     fun findSnapshotDownloadUrl(snapshotRepository: String): String
+
+    /**
+     * Searches the snapshot repository for the latest snapshot id. Throws
+     * a [IllegalArgumentException] if not found.
+     */
+    fun findSnapshotId(snapshotRepository: String): String
 }

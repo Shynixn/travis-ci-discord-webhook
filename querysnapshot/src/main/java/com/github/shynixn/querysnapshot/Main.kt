@@ -36,7 +36,9 @@ fun main(args: Array<String>) {
 
     val snapshotService = SnapshotServiceImpl()
 
-    args.forEach { arg ->
-        println(snapshotService.findSnapshotDownloadUrl(arg))
+    if (args[0] == "id") {
+        println(snapshotService.findSnapshotId(args[1]))
+    } else if (args[0] == "url") {
+        println(snapshotService.findSnapshotDownloadUrl(args[1]))
     }
 }

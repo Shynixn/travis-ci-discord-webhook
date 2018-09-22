@@ -5,8 +5,9 @@ if [ -z "$2" ]; then
 fi
 
 echo "[SnapshotUrlLocator]: Querying snapshots..."
-SNAPSHOT_BUKKIT_DOWNLOAD_URL=$(java -jar nexus-query-snapshot.jar $3)
-SNAPSHOT_SPONGE_DOWNLOAD_URL=$(java -jar nexus-query-snapshot.jar $4)
+SNAPSHOT_GENERAL_ID=$(java -jar nexus-query-snapshot.jar id $4)
+SNAPSHOT_BUKKIT_DOWNLOAD_URL=$(java -jar nexus-query-snapshot.jar url $4)
+SNAPSHOT_SPONGE_DOWNLOAD_URL=$(java -jar nexus-query-snapshot.jar url $5)
 echo "[SnapshotUrlLocator]: Successfully queried snapshots."
 
 echo -e "[Webhook]: Sending webhook to Discord...\\n";
@@ -100,5 +101,34 @@ WEBHOOK_DATA='{
   }]
 }'
 
+SNAPSHOT_WEBHOOK_DATA='{
+   "embeds": [ {
+    "color": '$EMBED_COLOR',
+    "author": {
+      "name": "PetBlocks Snapshot - Shynixn/PetBlocks - $SNAPSHOT_GENERAL_ID",
+      "url": "https://travis-ci.org/'"$TRAVIS_REPO_SLUG"'/builds/'"$TRAVIS_BUILD_ID"'",
+      "icon_url": "https://raw.githubusercontent.com/Shynixn/travis-ci-discord-webhook/master/bluepetsheep.png"
+    },
+    "title": "Downloads",
+    "description": "Author Shynixn published a new snapshot build",
+     "fields": [
+          {
+            "name": "Spigot/Bukkit",
+            "value": "<:bukkit:493024859555627009> '"[\`Direct Download\`]($SNAPSHOT_BUKKIT_DOWNLOAD_URL)"'",
+            "inline": true
+          },
+          {
+            "name": "Sponge",
+            "value": "<:sponge:493025240427790346> '"[\`Direct Download\`]($SNAPSHOT_SPONGE_DOWNLOAD_URL)"'",
+            "inline": true
+          }
+    ],
+    "timestamp": "'"$TIMESTAMP"'"
+  }]
+}'
+
 (curl --fail --progress-bar -A "TravisCI-Webhook" -H Content-Type:application/json -H X-Author:k3rn31p4nic#8383 -d "$WEBHOOK_DATA" "$2" \
-  && echo -e "\\n[Webhook]: Successfully sent the webhook.") || echo -e "\\n[Webhook]: Unable to send webhook."
+  && echo -e "\\n[Webhook]: Successfully sent the webhook 1.") || echo -e "\\n[Webhook]: Unable to send webhook 1."
+(curl --fail --progress-bar -A "TravisCI-Webhook" -H Content-Type:application/json -H X-Author:k3rn31p4nic#8383 -d "$SNAPSHOT_WEBHOOK_DATA" "$3" \
+&& echo -e "\\n[Webhook]: Successfully sent the webhook 2.") || echo -e "\\n[Webhook]: Unable to send webhook 2."
+

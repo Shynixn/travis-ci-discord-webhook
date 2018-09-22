@@ -85,7 +85,29 @@ WEBHOOK_DATA='{
       }
     ],
     "timestamp": "'"$TIMESTAMP"'"
-  } ]
+  },
+  {
+     "fields": [
+           {
+             "name": "Cat",
+             "value": "Hi! :wave:",
+             "inline": true
+           },
+           {
+             "name": "Dog",
+             "value": "hello!",
+             "inline": true
+           },
+           {
+             "name": "Cat",
+             "value": "wanna play? join to voice channel!"
+           },
+           {
+             "name": "Dog",
+             "value": "yay"
+           }
+     ]
+  }]
 }'
 
 (curl --fail --progress-bar -A "TravisCI-Webhook" -H Content-Type:application/json -H X-Author:k3rn31p4nic#8383 -d "$WEBHOOK_DATA" "$2" \

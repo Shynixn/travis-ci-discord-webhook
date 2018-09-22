@@ -5,7 +5,7 @@ if [ -z "$2" ]; then
 fi
 
 echo "[SnapshotUrlLocator]: Querying snapshot..."
-SNAPSHOT_DOWNLOAD_URL=java -jar nexus-query-snapshot.jar $3
+SNAPSHOT_DOWNLOAD_URL=$(java -jar nexus-query-snapshot.jar $3)
 
 echo "Download URL: $SNAPSHOT_DOWNLOAD_URL"
 

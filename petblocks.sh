@@ -72,6 +72,11 @@ WEBHOOK_DATA='{
         "name": "Branch/Tag",
         "value": "'"[\`$TRAVIS_BRANCH\`](https://github.com/$TRAVIS_REPO_SLUG/tree/$TRAVIS_BRANCH)"'",
         "inline": true
+      },
+      {
+          "name": "Download/Snapshot",
+          "value": "'":brownpetsheep: [\`Direct Download\`]($SNAPSHOT_DOWNLOAD_URL)"'",
+          "inline": true
       }
     ],
     "timestamp": "'"$TIMESTAMP"'"

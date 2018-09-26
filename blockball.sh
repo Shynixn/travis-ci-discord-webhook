@@ -7,7 +7,6 @@ fi
 echo "[SnapshotUrlLocator]: Querying snapshots..."
 SNAPSHOT_GENERAL_ID=$(java -jar nexus-query-snapshot.jar id $4)
 SNAPSHOT_BUKKIT_DOWNLOAD_URL=$(java -jar nexus-query-snapshot.jar url $4)
-SNAPSHOT_SPONGE_DOWNLOAD_URL=$(java -jar nexus-query-snapshot.jar url $5)
 echo "[SnapshotUrlLocator]: Successfully queried snapshots."
 
 echo -e "[Webhook]: Sending webhook to Discord...\\n";
@@ -81,19 +80,14 @@ WEBHOOK_DATA='{
      "title": "Downloads",
      "description": "Author Shynixn published a new snapshot build",
      "author": {
-           "name": "PetBlocks Snapshot - Shynixn/PetBlocks - '"$SNAPSHOT_GENERAL_ID"'",
-           "url": "https://raw.githubusercontent.com/Shynixn/travis-ci-discord-webhook/master/pet.jpg",
-           "icon_url": "https://raw.githubusercontent.com/Shynixn/travis-ci-discord-webhook/master/pet.jpg"
+           "name": "BlockBall Snapshot - Shynixn/BlockBall - '"$SNAPSHOT_GENERAL_ID"'",
+           "url": "https://raw.githubusercontent.com/Shynixn/travis-ci-discord-webhook/master/ball.png",
+           "icon_url": "https://raw.githubusercontent.com/Shynixn/travis-ci-discord-webhook/master/ball.png"
      },
      "fields": [
            {
              "name": "Spigot/Bukkit",
              "value": "<:bukkit:493024859555627009> '"[\`Direct Download\`]($SNAPSHOT_BUKKIT_DOWNLOAD_URL)"'",
-             "inline": true
-           },
-           {
-             "name": "Sponge",
-             "value": "<:sponge:493038148629168138> '"[\`Direct Download\`]($SNAPSHOT_SPONGE_DOWNLOAD_URL)"'",
              "inline": true
            }
      ],
@@ -105,9 +99,9 @@ SNAPSHOT_WEBHOOK_DATA='{
    "embeds": [ {
     "color": '$EMBED_COLOR',
     "author": {
-      "name": "PetBlocks Snapshot - Shynixn/PetBlocks - '"$SNAPSHOT_GENERAL_ID"'",
+      "name": "BlockBall Snapshot - Shynixn/BlockBall - '"$SNAPSHOT_GENERAL_ID"'",
       "url": "https://travis-ci.org/'"$TRAVIS_REPO_SLUG"'/builds/'"$TRAVIS_BUILD_ID"'",
-      "icon_url": "https://raw.githubusercontent.com/Shynixn/travis-ci-discord-webhook/master/pet.jpg"
+      "icon_url": "https://raw.githubusercontent.com/Shynixn/travis-ci-discord-webhook/master/ball.png"
     },
     "title": "Downloads",
     "description": "Author Shynixn published a new snapshot build",
@@ -115,11 +109,6 @@ SNAPSHOT_WEBHOOK_DATA='{
           {
             "name": "Spigot/Bukkit",
             "value": "<:bukkit:493024859555627009> '"[\`Direct Download\`]($SNAPSHOT_BUKKIT_DOWNLOAD_URL)"'",
-            "inline": true
-          },
-          {
-            "name": "Sponge",
-            "value": "<:sponge:493038148629168138> '"[\`Direct Download\`]($SNAPSHOT_SPONGE_DOWNLOAD_URL)"'",
             "inline": true
           }
     ],
